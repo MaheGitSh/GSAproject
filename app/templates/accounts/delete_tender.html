@@ -1,0 +1,14 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+<hr>
+<a><h5>Are you sure you want to Delete "{{item}}"?</h5></a>
+<form action="{% url 'delete_tender' item.id %}" method="POST">
+{% csrf_token %}
+<hr>
+<a class="btn btn-sm btn-info" href="{%url 'index'%} ">Cancel</a>  
+<input class="btn btn-sm btn-danger" type="submit" name="submit" >
+
+</form>
+{% endblock %}

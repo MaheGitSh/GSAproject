@@ -1,0 +1,42 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+<br>
+
+	<div class="col-md-12">
+		<h5></h5>
+		<hr>
+		<div class="card card-body">
+			
+			<table class="table table-sm">
+				<tr>
+					<th>Task Name</th>
+					<th>Date</th>
+					<th>Time</th>
+					<th>Created On</th>
+					<th>Status</th>
+					<th>Add</th>
+					<th>View</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+			 	{% for i in task %} 
+				<tr>
+					<td>{{i.name}}</td>
+					<td>{{i.date_time}}</td>
+					<td>{{i.time}}</td>
+					<td>{{i.assigned_to}}</td>
+					<td>{{i.status}}</td>
+					<td><a class="btn btn-sm btn-warning" href="{% url 'add_tender'%}">Add Task</a></td>
+					<td><a class="btn btn-sm btn-success" href="{% url 'view_tender' i.id %}">View</a></td>
+					<td><a class="btn btn-sm btn-info" href="{% url 'edit_tender' i.id %}">Update</a></td>
+					<td><a class="btn btn-sm btn-danger" href="{% url 'delete_tender' i.id %}">Delete</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+{%  include 'accounts/status.html' %}
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{%  extends 'accounts/main.html' %}
+{% load static %}
+
+{% block content %}
+<hr>
+<h4>Applicant Details</h4>
+    <form action="" method="POST" >
+        {% csrf_token %}
+       {{form.as_p}}<hr>
+
+    <td><a class="btn btn-sm btn-info" href="{% url 'index' %}">Back</a></td>
+    </form>
+
+{% endblock %}
